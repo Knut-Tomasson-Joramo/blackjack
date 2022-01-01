@@ -6,5 +6,8 @@
 import player, dealer
 
 class Game:
-    def __init__(self, players=[]):
-        pass
+    def __init__(self, dealer, players=[]):
+        self.dealer = dealer
+        self.players_playing = players
+        self.busted_players = []
+        self.standing_players = []
