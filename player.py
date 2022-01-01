@@ -32,3 +32,6 @@ class Player:
     def score(self):
         return self.player_score
 
+    def hit(self, card):
+        self.player_score += card
+
