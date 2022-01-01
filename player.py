@@ -35,3 +35,6 @@ class Player:
     def hit(self, card):
         self.player_score += card
 
+    def get_name(self):
+        return self.player_name
+
