@@ -53,5 +53,29 @@ class Game:
         print("Lets play blackjack.")
         
         while len(self.players_playing) > 0:
-            pass
+            counter = 0
+            to_standing = []
+            to_busted = []
+            for player in self.players_playing:
+                print("Hello {}".format(player.get_name()))
+                print("your score is {}".format(player.score()))
+                print("choose one option")
+                print("1. hit")
+                print("2. stand")
+                the_gamble = input()
+                if the_gamble == "1":
+                    player.hit(self.deck.get_card())
+                    print("your score is now {}".format(player.score()))
+                else:
+                    to_standing.append(counter)                
+                if player.score() > 21:
+                    print("You're out!")
+                    to_busted.append(counter)
+                
+                counter += 1
+            for stand in to_standing:
+                self.standing_players.append(self.players_playing.pop(stand))
+            for bust in to_busted:
+                self.busted_players.append(self.players_playing.pop(bust))
+
         
