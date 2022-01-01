@@ -25,6 +25,9 @@ class Player:
         self.player_score = 0
         self.player_bust = False
         self.player_still_playing = True
+
+    def __repr__(self) -> str:
+        return self.player_name
     
     def bust(self):
         self.player_bust = True
@@ -34,6 +37,8 @@ class Player:
 
     def hit(self, card):
         self.player_score += card
+        if self.player_score > 21:
+            self.bust()
 
     def get_name(self):
         return self.player_name

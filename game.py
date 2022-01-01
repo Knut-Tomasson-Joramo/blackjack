@@ -6,6 +6,7 @@
 from player import Player
 from dealer import Dealer
 from deck import Deck
+import time
 
 class Game:
     def __init__(self, players=[]):
@@ -77,5 +78,25 @@ class Game:
                 self.standing_players.append(self.players_playing.pop(stand))
             for bust in to_busted:
                 self.busted_players.append(self.players_playing.pop(bust))
+        
+        print("Dealers turn!")
+
+        while self.dealer.score() < 17:            
+            print("Dealer hits!")
+            self.dealer.hit(self.deck.get_card())
+            time.sleep(1)
+            print("Dealers score is: {}".format(self.dealer.score()))
+
+        if self.dealer.bust():
+            for player in self.standing_players:
+                print("{} you are a winner".format(player.get_name()))
+        else:
+            for player in self.standing_players:
+                if player.score() > self.dealer.score():
+                    print("{} you win!".format(player.get_name()))
+                elif player.score() == self.dealer.score():
+                    print("it's a tie for you {}".format(player.get_name()))
+                else:
+                    print("Sorry {} you loose..".format(player.get_name()))
 
         

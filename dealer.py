@@ -9,7 +9,7 @@ class Dealer:
         self.score = 0
         self.bust = False
 
-    def ahit(self, score):
+    def hit(self, score):
         self.score += score
         if self.score > 21:
             self.bust = True
