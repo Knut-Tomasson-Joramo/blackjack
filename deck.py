@@ -10,7 +10,7 @@ class Deck:
         self.spades = [x for x in range(1, 14)]
         self.diamonds = [x for x in range(1, 14)]
         self.clubs = [x for x in range(1, 14)]
-        self.card_deck = list(zip(self.clubs, self.diamonds, self.harts, self.spades))
+        self.card_deck = self.clubs + self.diamonds + self.harts + self.spades
 
         # shuffle the deck
         random.shuffle(self.card_deck)

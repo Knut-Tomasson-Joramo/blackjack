@@ -42,4 +42,7 @@ class Player:
 
     def get_name(self):
         return self.player_name
+    
+    def reset(self):
+        self.player_score = 0
 

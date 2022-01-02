@@ -14,8 +14,11 @@ class Dealer:
         if self.score > 21:
             self.bust = True
 
-    def bust(self):
+    def get_bust(self):
         return self.bust
 
-    def score(self):
+    def get_score(self):
         return self.score
+
+    def reset(self):
+        self.score = 0
